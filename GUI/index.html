@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arduino LCD Front View</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <div class="dashboard">
+      <section class="side-card connection-card" aria-labelledby="connection-title">
+        <div class="eyebrow">LIVE SERIAL</div>
+        <h2 id="connection-title">Connection</h2>
+        <div class="serial-title">ESP32 <span class="baud">115200 baud</span></div>
+        <p id="serial-status" role="status">Disconnected</p>
+        <div class="latest">Latest output: <code id="latest-output">—</code></div>
+        <button id="serial-button" type="button">Connect ESP32</button>
+      </section>
+
+      <section class="preview" aria-label="ESP32 LCD preview">
+        <div class="module" id="module">
+          <span class="mount mount-tl" aria-hidden="true"></span>
+          <span class="mount mount-tr" aria-hidden="true"></span>
+          <span class="mount mount-bl" aria-hidden="true"></span>
+          <span class="mount mount-br" aria-hidden="true"></span>
+          <div class="bezel">
+            <div class="display" id="display">
+              <canvas id="lcd" role="img" aria-label="LCD showing STATUS: on the first row and DISCONNECTED on the second row"></canvas>
+            </div>
+          </div>
+          <span class="board-mark" aria-hidden="true">LCD 1602</span>
+        </div>
+      </section>
+
+      <section class="side-card mode-card" aria-labelledby="mode-title">
+        <div class="eyebrow">LED LIGHTING</div>
+        <h2 id="mode-title">Modes</h2>
+        <p>Choose a pattern for the six LEDs.</p>
+        <div class="mode-panel" aria-label="LED modes">
+          <button id="mode-idle" class="mode-button" type="button" aria-pressed="false" disabled>Idle / Stop</button>
+          <button id="mode-blink" class="mode-button" type="button" aria-pressed="false" disabled>Blink</button>
+          <button id="mode-run" class="mode-button" type="button" aria-pressed="false" disabled>Run</button>
+          <button id="mode-alt" class="mode-button" type="button" aria-pressed="false" disabled>ALT</button>
+          <button id="mode-all" class="mode-button" type="button" aria-pressed="false" disabled>Run All</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="led-bank" aria-label="Six LED outputs">
+      <span class="led" data-led="0">GPIO 19</span>
+      <span class="led" data-led="1">GPIO 18</span>
+      <span class="led" data-led="2">GPIO 5</span>
+      <span class="led" data-led="3">GPIO 17</span>
+      <span class="led" data-led="4">GPIO 16</span>
+      <span class="led" data-led="5">GPIO 4</span>
+    </div>
+
+  </main>
+</body>
+</html>
